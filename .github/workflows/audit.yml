@@ -35,12 +35,27 @@ jobs:
     - uses: taiki-e/install-action@v2
       with:
         tool: cargo-audit
+    - name: Stub out `cargo generate-lockfile` to work around actions-rs/audit-check#163
+      run: |
+        cd ~/.cargo/bin
+        mv cargo cargo.orig
+
+        cat >cargo <<'EOF'
+        #!/bin/sh
+        set -eu
+        case "$1" in  # Non-robustly assume subcommand, not option - OK for actions-rs/audit-check.
+        generate-lockfile)
+          printf '::warning SKIPPING: %s %s\n' "$0" "$*" ;;
+        *)
+          exec "$0.orig" "$@" ;;
+        esac
+        EOF
+
+        chmod +x cargo
     # - name: Open tmate session
     #   uses: mxschmitt/action-tmate@v3
     #   with:
     #     limit-access-to-actor: true
-    - name: 'Work around https://github.com/actions-rs/audit-check/issues/163'
-      run: chmod -w Cargo.lock
     - uses: actions-rs/audit-check@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
