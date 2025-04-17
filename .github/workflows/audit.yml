@@ -35,6 +35,10 @@ jobs:
     - uses: taiki-e/install-action@v2
       with:
         tool: cargo-audit
+    - name: Open tmate session
+      uses: mxschmitt/action-tmate@v3
+      with:
+        limit-access-to-actor: true
     - uses: actions-rs/audit-check@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
