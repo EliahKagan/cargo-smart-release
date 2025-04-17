@@ -25,23 +25,23 @@ cache-efficiency-debug = ["gix/cache-efficiency-debug"]
 
 [dependencies]
 gix = { version = "0.71.0", default-features = false, features = ["max-performance", "interrupt"] }
-anyhow = "1.0.42"
-clap = { version = "4.1.0", features = ["derive", "cargo"] }
-env_logger = { version = "0.11.6", default-features = false, features = ["humantime", "auto-color"] }
-cargo_metadata = "0.19.1"
-log = "0.4.14"
-toml_edit = "0.22.22"
-semver = "1.0.4"
-crates-index = { version = "3.5.0", default-features = false, features = ["git-performance", "git-https"] }
-cargo_toml = "0.21.0"
-winnow = "0.6.20"
-git-conventional = "0.12.0"
-jiff = "0.1.8"
-pulldown-cmark = "0.9.0"
+anyhow = "1.0.98"
+clap = { version = "4.5.36", features = ["derive", "cargo"] }
+env_logger = { version = "0.11.8", default-features = false, features = ["humantime", "auto-color"] }
+cargo_metadata = "0.19.2"
+log = "0.4.27"
+toml_edit = "0.22.24"
+semver = "1.0.26"
+crates-index = { version = "3.6.0", default-features = false, features = ["git-performance", "git-https"] }
+cargo_toml = "0.22.1"
+winnow = "0.7.6"
+git-conventional = "0.12.9"
+jiff = "0.2.6"
+pulldown-cmark = "0.13.0"
 bitflags = "2"
 
 [dev-dependencies]
-insta = "1.8.0"
+insta = "1.42.2"
 gix-testtools = "0.15.0"
 testing_logger = "0.1.1"
 
