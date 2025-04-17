@@ -43,7 +43,9 @@ jobs:
         cat >cargo <<'EOF'
         #!/bin/sh
         set -eu
-        case "$1" in  # Non-robustly assume subcommand, not option - OK for actions-rs/audit-check.
+        # Assume the first argument is the subcommand, rather than an option. This is not robust,
+        # but it works for the very simple call in actions-rs/audit-check, which is what matters.
+        case "$1" in
         generate-lockfile)
           printf '::warning SKIPPING: %s %s\n' "$0" "$*" ;;
         *)
@@ -52,10 +54,6 @@ jobs:
         EOF
 
         chmod +x cargo
-    # - name: Open tmate session
-    #   uses: mxschmitt/action-tmate@v3
-    #   with:
-    #     limit-access-to-actor: true
     - uses: actions-rs/audit-check@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
