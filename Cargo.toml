@@ -35,8 +35,8 @@ env_logger = { version = "0.11.6", default-features = false, features = [
     "auto-color",
 ] }
 cargo_metadata = "0.23.1"
-log = "0.4.28"
-toml_edit = "0.23.7"
+log = "0.4.29"
+toml_edit = "0.23.9"
 semver = "1.0.27"
 crates-index = { version = "3.11.0", default-features = false, features = [
     "git-performance",
@@ -53,7 +53,7 @@ unicode-properties = { version = "0.1.4", optional = true, features = [
 ], default-features = false }
 
 [dev-dependencies]
-insta = "1.44.3"
+insta = "1.45.0"
 gix-testtools = "0.16.1"
 testing_logger = "0.1.1"
 
