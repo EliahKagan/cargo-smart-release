@@ -30,7 +30,7 @@ gix = { version = "0.78.0", default-features = false, features = [
     "index"
 ] }
 anyhow = "1.0.100"
-clap = { version = "4.5.53", features = ["derive", "cargo"] }
+clap = { version = "4.5.55", features = ["derive", "cargo"] }
 env_logger = { version = "0.11.6", default-features = false, features = [
     "humantime",
     "auto-color",
